@@ -1,0 +1,261 @@
+
+/* General styles */
+body {
+    margin: 0;
+    background: #eef2f7;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #283445;
+    line-height: 1.6;
+}
+
+.resume-card {
+    max-width: 900px;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 35px rgba(20, 40, 70, 0.12);
+}
+
+/* Resume header */
+.resume-header {
+    background: linear-gradient(135deg, #12345a, #176b87);
+    color: #ffffff;
+    padding: 40px 45px;
+}
+
+.resume-header h1 {
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    overflow-wrap: anywhere;
+}
+
+.resume-header h5 {
+    color: #ffd166;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 22px;
+}
+
+.contact-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 22px;
+    font-size: 13px;
+}
+
+.contact-details i {
+    margin-right: 5px;
+    color: #ffd166;
+}
+
+.contact-details span {
+    overflow-wrap: anywhere;
+}
+
+/* Resume content */
+.resume-body {
+    padding: 35px 45px;
+}
+
+.resume-section {
+    margin-bottom: 30px;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.resume-section h3 {
+    color: #12345a;
+    font-size: 19px;
+    font-weight: 800;
+    border-bottom: 2px solid #e1a93b;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+.resume-section h5 {
+    color: #176b87;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.resume-section p,
+.resume-section li {
+    font-size: 14px;
+}
+
+.resume-section ul {
+    padding-left: 22px;
+}
+
+.resume-section li {
+    margin-bottom: 7px;
+}
+
+.skill-box {
+    background: #f4f8fc;
+    border: 1px solid #e0e9f2;
+    border-left: 4px solid #176b87;
+    border-radius: 6px;
+    padding: 16px;
+    height: 100%;
+}
+
+.skill-box h6 {
+    font-weight: 800;
+    color: #12345a;
+    margin-bottom: 8px;
+}
+
+.skill-box h6 i {
+    margin-right: 6px;
+    color: #176b87;
+}
+
+.skill-box p {
+    margin-bottom: 0;
+    font-size: 13px;
+}
+
+.education-item {
+    margin-bottom: 18px;
+}
+
+.education-item p {
+    margin-bottom: 4px;
+}
+
+.strength-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.strength-tags span {
+    background: #eaf3fa;
+    color: #12345a;
+    padding: 7px 13px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.resume-footer {
+    background: #12345a;
+    color: white;
+    text-align: center;
+    padding: 13px;
+    font-size: 12px;
+}
+
+/* Editable content */
+[contenteditable="true"] {
+    outline: none;
+    border-radius: 3px;
+}
+
+[contenteditable="true"]:focus {
+    background: #fff8dc;
+    color: #222;
+    box-shadow: 0 0 0 2px #e1a93b;
+}
+
+/* Responsive design */
+@media (max-width: 576px) {
+    .resume-header {
+        padding: 28px 22px;
+    }
+
+    .resume-header h1 {
+        font-size: 26px;
+    }
+
+    .resume-header h5 {
+        font-size: 13px;
+    }
+
+    .resume-body {
+        padding: 25px 22px;
+    }
+
+    .contact-details {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+/* PDF / print layout */
+@page {
+    size: A4;
+    margin: 10mm;
+}
+
+@media print {
+    body {
+        background: #ffffff;
+        color: #222222;
+        font-size: 11pt;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .no-print,
+    nav {
+        display: none !important;
+    }
+
+    main.container {
+        max-width: none !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .resume-card {
+        max-width: none;
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+        overflow: visible;
+    }
+
+    .resume-header {
+        padding: 22px 26px;
+    }
+
+    .resume-header h1 {
+        font-size: 25px;
+    }
+
+    .resume-body {
+        padding: 22px 26px;
+    }
+
+    .resume-section {
+        margin-bottom: 20px;
+    }
+
+    .resume-section h3 {
+        font-size: 15px;
+    }
+
+    .resume-section p,
+    .resume-section li {
+        font-size: 10pt;
+    }
+
+    .skill-box {
+        break-inside: avoid;
+    }
+
+    [contenteditable="true"]:focus {
+        background: transparent;
+        box-shadow: none;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}
