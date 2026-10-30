@@ -310,6 +310,10 @@
 
 
                     </form>
+                    <p class="text-center mt-3 mb-0">
+                        Already have this Account 
+                        <a href="#" id="openLoginFromSignup">Login</a>
+                    </p>
                 </div>
 
 
@@ -326,6 +330,84 @@
 
     <!-- CUSTOM JAVASCRIPT -->
     <script>
+
+        // LOCAL STORAGE
+        const USER_KEY ="myWebsiteUserKey";
+        const CURRENT_USER_KEY ="mytWebsiteCurrentUserKey"
+
+        // try catch
+        function getUser(){
+            try{
+                const users=JSON.parse(
+                    localStorage.getItem(USER_KEY)
+                );
+                return Array.isArray(users) ? users:[];
+                }
+            catch (error){
+                return [];
+            }
+        }
+        // SAVE REGISTERED FORM
+        function saveUsers(users) {
+            localStorage.setItem(
+                USER_KEY,
+                JSON.stringify(users)
+            )
+        }
+
+        // GET CURRENT USER KEY 
+
+        function getCurrentUser(){
+            try{
+                return JSON.parse(
+                    localStorage.getItem(CURRENT_USER_KEY)
+                )
+            }
+            catch(error){
+                return null;
+            }
+        }
+
+        // SHOW USER DETAILES IN USER SECTION
+        function displayUser(user){
+            document.getElementById("userDetails").style.display="block";
+            document.getElementById("displayName").textContent=user.name;
+            document.getElementById("displayEmail").textContent=user.email;
+            document.getElementById("getStaredBtn").style.display="none";
+            document.getElementById("loginButton").style.display="none";
+            document.getElementById("signupButton").style.display="none";
+        }
+        // HIDE USER DETAILS
+        function hideUser(){
+            document.getElementById("userDetails").style.display="none";
+            document.getElementById("getStartedBtn").style.display="inline-block";
+            document.getElementById("loginButton").style.display="inline-block";
+            document.getElementById("signupButton").style.display="inline-block";
+        }
+
+        // OPEN MODAL
+        function showModal(modalId){
+            bootstrap.Modal.getOrCreateInstance(
+                document.getElementById(modalId)
+            ).show();
+
+        }
+
+        // CLOSED MODAL
+        function closeModal(modalId){
+            bootstrap.Modal.getOrCreateInstance(
+                document.getElementById(modalId)
+            ).hide();
+        }
+
+        // 
+
+
+
+
+
+
+
         // LOGIN FORM
         document.getElementById("loginForm")
             .addEventListener("submit", function (event) {
